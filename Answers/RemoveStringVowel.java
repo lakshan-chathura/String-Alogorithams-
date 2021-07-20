@@ -1,35 +1,53 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package stringapi.ques;
+
+package virtusa.alogorithams;
+
 
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author Lakshan
- */
-public class RemoveStringVowel {
-    public static Object[] getString(String word){
-        char[] array=word.toCharArray();
-        ArrayList<Character> arrays=new ArrayList<>();
-        for(Character ch:array){
-            arrays.add(ch);
-            if(ch=='a'|| ch=='e'|| ch=='i'|| ch=='o'||ch=='u'){
-                arrays.remove(ch);
-            }   
+public class FindVowels {
+    //count vowels given a string
+    public static int countVowels(String word){
+        if(word.length()==0){
+            return 0;
         }
-        Object newarray[]=arrays.toArray();
-        return newarray;
-        
-       
+        int count=0;
+        String vowels="aeiou";
+        for(char ch:word.toLowerCase().toCharArray()){
+            if(vowels.indexOf(ch)!=-1){
+                count++;
+            }
+        }
+        return count;
     }
-    public static void main(String[] args) {
-        Object arr[]=RemoveStringVowel.getString("lakshan");
-        for(int i=0;i<arr.length;i++){
-            System.out.println(arr[i]+" ");
+
+    //remove vowels given a string
+    public static String removeVowels(String word){
+        if(word.length()==0){
+            throw new IllegalArgumentException();
         }
+        StringBuilder stringBuilder=new StringBuilder();
+        List<Character> arrList=new ArrayList<>();
+        arrList.add('a');
+        arrList.add('e');
+        arrList.add('i');
+        arrList.add('o');
+        arrList.add('u');
+
+        for(char ch:word.toLowerCase().toCharArray()){
+            if(!arrList.contains(ch)){
+                stringBuilder.append(ch);
+            }
+        }
+
+        return stringBuilder.toString();
+    }
+
+
+    public static void main(String[] args) {
+        String word="Trees are beautifull";
+        System.out.println(countVowels(word));
+        System.out.println(removeVowels(word));
+
     }
 }
