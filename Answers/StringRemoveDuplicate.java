@@ -9,25 +9,40 @@ import java.util.Arrays;
 
 
 public class StringRemoveDuplicate {
-    public static void removeDuplicateString(char[] array){
-        int num_of_length=array.length;
-        for(int i=0;i<num_of_length;i++){
-            for(int j=i+1;j<num_of_length;j++){
-                if(array[j]==array[i]){
-                    array[j]=array[num_of_length-1];
-                    num_of_length--;
-                    j--;
-                    
-                }
+    public static String removeDuplicatesFromString(String sentence){
+        if(sentence==null){
+            return "";
+        }
+        StringBuffer stringBuffer=new StringBuffer();
+        Set<Character> map=new HashSet<>();
+        for(char element:sentence.toCharArray()){
+            if(!map.contains(element)){
+                map.add(element);
+                stringBuffer.append(element);
             }
         }
-        char[] newArray=Arrays.copyOf(array,num_of_length);
-        String s1=new String(newArray);
-        System.out.println(s1);
+    return stringBuffer.toString();
     }
+
+    public static boolean checkallUniqueCharacters(String sentence){
+        if(sentence==null || sentence.length()==0){
+            return false;
+        }
+        Set<Character> map=new HashSet<>();
+        for(char element:sentence.toCharArray()){
+          if(!map.add(element)){
+              return false;
+          }
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
-    String temp="java";
-    char[] array=temp.toCharArray();
-    StringRemoveDuplicate.removeDuplicateString(array); 
+        System.out.println(removeDuplicatesFromString(""));
+        System.out.println(checkallUniqueCharacters(""));
+
+
+
     }
 }
