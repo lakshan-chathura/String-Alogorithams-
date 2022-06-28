@@ -2,7 +2,7 @@ package stringapi.ques;
 
 public class ReverseString {
     public static String getReverseString(String word){
-        if(word.length()==0){
+        if(word.length()==0 || word==null){
             return "";
         }
         StringBuffer concatanated=new StringBuffer();
@@ -15,15 +15,16 @@ public class ReverseString {
 
     //reverse a String without using String inbuilt methods
     public static String getReverseStringWithoutUsingStringMethods(String word){
-        if(word.length()==0){
+        if(word.length()==0 || word==null){
             return "";
         }
         int count=0;
-        char array[]=new char[word.length()];
-        for(int i=word.length()-1;i>=0;i--){
-            array[count++]=word.charAt(i);
+        char array[]=word.toCharArray();
+        char newArray[]=new char[array.length];
+        for(int i=array.length-1;i>=0;i--){
+          newArray[count++]=array[i];
         }
-        String reverse=new String(array);
+        String reverse=new String(newArray);
         return reverse;
     }
 
