@@ -2,6 +2,9 @@ package virtusa.alogorithams;
 
 public class ReversedSentence {
     public static String getReversedSentence(String word){
+        if(word.length()==0 || word==null ){
+            return "";
+        }
         String array[]=word.split(" ");
         StringBuffer concatanated=new StringBuffer();
 
@@ -10,6 +13,15 @@ public class ReversedSentence {
         }
         return concatanated.toString().trim();
 
+    }
+    
+    public static String reverseWords(String word){
+        if(word.length()==0 || word==null ){
+            return "";
+        }
+        String array[]=word.trim().split(" ");
+        Collections.reverse(Arrays.asList(array));
+        return String.join(" ",array);
     }
 
     public static void main(String[] args) {
