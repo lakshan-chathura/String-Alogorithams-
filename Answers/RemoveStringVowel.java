@@ -8,7 +8,7 @@ import java.util.List;
 public class FindVowels {
     //count vowels given a string
     public static int countVowels(String word){
-        if(word.length()==0){
+        if(word.length()==0 || word==null ){
             return 0;
         }
         int count=0;
@@ -23,7 +23,7 @@ public class FindVowels {
 
     //remove vowels given a string
     public static String removeVowels(String word){
-        if(word.length()==0){
+        if(word.length()==0 || word==null ){
             throw new IllegalArgumentException();
         }
         StringBuilder stringBuilder=new StringBuilder();
