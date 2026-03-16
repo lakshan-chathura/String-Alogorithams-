@@ -9,16 +9,10 @@ public class StringAnagrams {
         if(word1==null || word2==null || word1.length()!=word2.length()){
           return false;
         }
-        char array1[]=word1.toLowerCase().toCharArray();
-        char array2[]=word2.toLowerCase().toCharArray();
+        var array1=word1.toLowerCase().toCharArray();
+        var array2=word2.toLowerCase().toCharArray();
         Arrays.sort(array1);
         Arrays.sort(array2);
-        if(Arrays.equals(array1,array2)){
-            return true;
-        }
-        return false;
-    }
-    public static void main(String[] args) {
-        System.out.println(isAnagram("abcd","cbda"));
+        return Arrays.equals(array1,array2);    
     }
 }
